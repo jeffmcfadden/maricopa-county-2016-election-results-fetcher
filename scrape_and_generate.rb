@@ -19,7 +19,7 @@ last_updated_second = date_string.split( ' ' )[1].split( ':' )[2].to_i
 last_updated = Time.new( last_updated_year, last_updated_month, last_updated_day, last_updated_hour, last_updated_minute, last_updated_second, '-07:00')
 
 def file_name_for_race( race )
-  race.downcase.gsub(' ', '-').gsub( '(', '' ).gsub( ')', '' )
+  race.downcase.gsub(' ', '-').gsub( '(', '' ).gsub( ')', '' ).gsub( '#', '-' )
 end
 
 def text_for_race_data( race_data )
