@@ -24,12 +24,10 @@ end
 
 def text_for_race_data( race_data )
   text = "#{race_data[:race]}" + "\n"
-  text += "-" * 80 + "\n"
-  
-  longest_candidate_name_length = race_data[:candidates].collect{ |c| c[:name].size }.max
+  text += "-" * 45 + "\n"
   
   race_data[:candidates].each do |c|
-    text += c[:name].ljust( longest_candidate_name_length ) + " | " + c[:vote_share].to_f.round(1).to_s.rjust( 5 ) + "% | " + c[:total_votes].to_s.rjust( 9 ) + "\n"
+    text += c[:name][0..21].ljust( 23 ) + " | " + c[:vote_share].to_f.round(1).to_s.rjust( 5 ) + "% | " + c[:total_votes].to_s.rjust( 9 ) + "\n"
   end
   
   text += "\n"
